@@ -11,6 +11,8 @@ import humanherb from './human-herb.png';
 import human2 from './human2.png';
 import liverup from './liver-up.png';
 import petherb from './pet-herb.png';
+import location from './location.png';
+
 
 
 
@@ -28,6 +30,7 @@ const images = {
     human2,
     liverup,
     petherb,
+    location,
 }
 
 export default images;
