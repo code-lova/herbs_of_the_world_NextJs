@@ -65,7 +65,7 @@ const Navbar = () => {
                 {navLinks.map((nav) => (
                     <li
                         key={nav.id}
-                        className="text-white hover:underline py-2 hover:lg:text-white lg:transitioning lg:py-4 font-light text-[16px] relative"
+                        className="text-white hover:underline py-2 hover:lg:text-white font-bold lg:transitioning lg:py-4 text-[16px] relative"
                         onMouseEnter={() => handleMouseEnter(nav.id)}
                         onMouseLeave={handleMouseLeave}
                     >
@@ -73,7 +73,7 @@ const Navbar = () => {
 
                         {/* Render submenu if available */}
                         {nav.subMenu && showSubMenu === nav.id && (
-                            <ul className='absolute left-0 top-full w-[180px] mt-0 bg-white text-black py-2 shadow-lg rounded'>
+                            <ul className='absolute left-0 top-full font-light w-[180px] mt-0 bg-white text-black py-2 shadow-lg rounded'>
                                 {nav.subMenu.map((subNav) => (
                                     <li key={subNav.title} className='px-4 py-2 hover:bg-gray-200'>
                                         <Link href={subNav.link}>{subNav.title}</Link>
