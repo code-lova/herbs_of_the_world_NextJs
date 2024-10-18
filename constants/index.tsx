@@ -1,3 +1,5 @@
+import images from "@/public/images";
+
 export const navLinks = [
 
     {
@@ -52,23 +54,7 @@ export const navLinks = [
     },
 ]
 
-export const heroImage = [
 
-    {
-        id: 1,
-        name: 'Hero1',
-        image: '/images/hero1.webp',
-        title: 'Street Style',
-        title2: 'Select your Style'
-    },
-    {
-        id: 2,
-        name: 'Hero2',
-        image: '/images/hero2.webp',
-        title: 'sleek Collections',
-        title2: 'walk Confidently'
-    }
-]
 
 export const features = [
     {
@@ -148,3 +134,12 @@ export const adminNavLinks = [
         link: ''
     },
 ];
+
+export const testimonials = [
+    { id: 1, name: 'Luiz Mendez', rating: 4, review: 'Lorem, ipsum dolor sit amet...', image: images.avatar },
+    { id: 2, name: 'Maria Johnson', rating: 5, review: 'Adipisicing elit. Cum sunt...', image: images.avatar },
+    { id: 3, name: 'John Doe', rating: 5, review: 'Commodi ad pariatur sunt...', image: images.avatar },
+    { id: 4, name: 'Anna Smith', rating: 4, review: 'Ad pariatur sunt nemo...', image: images.avatar },
+    { id: 5, name: 'David Brown', rating: 5, review: 'Dolor sit amet consectetur...', image: images.avatar },
+    { id: 6, name: 'Emily Davis', rating: 5, review: 'Lorem ipsum dolor sit...', image: images.avatar },
+  ];
