@@ -1,5 +1,6 @@
 import AboutUs from "@/components/AboutUs";
 import Banner from "@/components/Banner";
+import ContactCrad from "@/components/ContactCrad";
 import Disclaimer from "@/components/Disclaimer";
 import { DiscountPromo } from "@/components/DiscountPromo";
 import Hero from "@/components/Hero";
@@ -28,9 +29,12 @@ export default function Home() {
       </section>
       <section className="xl:px-40 py-9">
         <TestimonialSlider />
-        <div className="py-6">
+        <div className="py-6 bg-gray-50">
           <Disclaimer />
         </div>
+      </section>
+      <section className="xl:px-40 py-9">
+        <ContactCrad />
       </section>
 
 

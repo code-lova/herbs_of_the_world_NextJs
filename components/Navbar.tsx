@@ -31,7 +31,7 @@ const Navbar = () => {
                     src="/logo.webp" 
                     width={90} 
                     height={30} 
-                    alt='katchyway logo'
+                    alt='herb of the world logo'
                     className=' object-contain'
                 />
             </div>
