@@ -58,7 +58,7 @@ const TestimonialSlider = () => {
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
                 className="flex-none w-full md:w-1/2 lg:w-1/3 px-2"
