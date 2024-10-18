@@ -77,7 +77,7 @@ const Footer = () => {
                             <li className="mb-5 text-sm">Horse Care Guide</li>
                         </a>
                         <a href="" className="hover:underline">
-                            <li className="mb-5 text-sm">FAQ's</li>
+                            <li className="mb-5 text-sm">FAQ&apos;s</li>
                         </a>
                         <a href="" className="hover:underline">
                             <li className="mb-5 text-sm">Rewards</li>
