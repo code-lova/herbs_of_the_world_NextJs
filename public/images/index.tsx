@@ -12,6 +12,11 @@ import human2 from './human2.png';
 import liverup from './liver-up.png';
 import petherb from './pet-herb.png';
 import location from './location.png';
+import insta from './insta.png';
+import twitterx from './twitterx.png';
+import fb from './fb.png';
+import youtube from './youtube.png';
+import logowhite from './logo-white.png'
 
 
 
@@ -31,6 +36,11 @@ const images = {
     liverup,
     petherb,
     location,
+    insta,
+    twitterx,
+    fb,
+    youtube,
+    logowhite,
 }
 
 export default images;
