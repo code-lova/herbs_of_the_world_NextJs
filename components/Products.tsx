@@ -8,7 +8,7 @@ const Products = () => {
         <div>
             <h1 className="text-center text-[34px] uppercase font-palanquin font-extrabold">Popular Products</h1>
             <div className="mt-4">
-                <p className="mt-4 text-center mb-8 md:w-2/4 mx-auto">
+                <p className="mt-4 text-center mb-8 max-w-[300px] mx-auto">
                     Suscipit tellus mauris a diam maecenas sed enim ut sem.
                     Turpis egestas maecenas pharetra convallis posuere
                 </p>

@@ -1,9 +1,11 @@
 import AboutUs from "@/components/AboutUs";
 import Banner from "@/components/Banner";
+import Disclaimer from "@/components/Disclaimer";
 import { DiscountPromo } from "@/components/DiscountPromo";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Products from "@/components/Products";
+import TestimonialSlider from "@/components/Testimonial";
 
 export default function Home() {
   return (
@@ -24,6 +26,13 @@ export default function Home() {
       <section className="xl:px-40 py-9">
         <AboutUs />
       </section>
+      <section className="xl:px-40 py-9">
+        <TestimonialSlider />
+        <div className="py-6">
+          <Disclaimer />
+        </div>
+      </section>
+
 
     </main>
   );
