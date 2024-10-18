@@ -111,10 +111,16 @@ main{
     @apply p-4 w-auto rounded-lg cursor-pointer h-auto card-color shadow-shadow-1 text-coral-red tracking-wider;
   }
 
-
+  .form-button {
+    @apply md:w-[100px] md:h-[60px] h-[50px] md:mt-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-900 text-white py-1 px-2 rounded;
+  }
 
   .form-label{
     @apply p-4 w-full h-14 text-color shadow-inner-shadow bg-neutral-900 outline-none mt-2 rounded-lg focus-within:border-2 border-red-500;
+  }
+
+  .form-control{
+    @apply p-4 w-[300px] h-[60px] xl:w-[300px] mt-4 shadow-inner bg-gray-200 outline-none rounded-lg border-2 border-transparent focus:border-green-800;
   }
   
 

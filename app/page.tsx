@@ -6,6 +6,7 @@ import { DiscountPromo } from "@/components/DiscountPromo";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Products from "@/components/Products";
+import Subscription from "@/components/Subscription";
 import TestimonialSlider from "@/components/Testimonial";
 
 export default function Home() {
@@ -35,6 +36,9 @@ export default function Home() {
       </section>
       <section className="xl:px-40 py-9">
         <ContactCrad />
+      </section>
+      <section className="xl:px-40 py-9 bg-gray-100">
+        <Subscription />
       </section>
 
 
