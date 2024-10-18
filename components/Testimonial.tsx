@@ -99,11 +99,11 @@ const TestimonialSlider = () => {
         <div className="flex justify-center mt-4 space-x-2">
           {Array(totalSlides)
             .fill(0)
-            .map((_, index) => (
+            .map((_, i) => (
               <button
-                key={index}
-                className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-green-500' : 'bg-gray-400'}`}
-                onClick={() => goToSlide(index)}
+                key={i}
+                className={`w-3 h-3 rounded-full ${i === currentSlide ? 'bg-green-500' : 'bg-gray-400'}`}
+                onClick={() => goToSlide(i)}
               />
             ))}
         </div>
