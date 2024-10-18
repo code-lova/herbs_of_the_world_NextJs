@@ -3,6 +3,7 @@ import Banner from "@/components/Banner";
 import ContactCrad from "@/components/ContactCrad";
 import Disclaimer from "@/components/Disclaimer";
 import { DiscountPromo } from "@/components/DiscountPromo";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Products from "@/components/Products";
@@ -39,6 +40,9 @@ export default function Home() {
       </section>
       <section className="xl:px-40 py-9 bg-gray-100">
         <Subscription />
+      </section>
+      <section className="xl:px-40 py-9 bg-green-900">
+        <Footer />
       </section>
 
 

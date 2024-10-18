@@ -5,7 +5,7 @@ const Subscription = () => {
         <div>
             <div className="mt-2 text-black font-extrabold text-xl">
                 <div className="w-full mx-auto flex flex-col space-y-8 xl:space-y-0 xl:flex-row justify-center items-center">
-                    <div className="px-1">
+                    <div className="px-6 lg:px-1">
                         <p className="text-center">Subscribe for the latest health advice, insights, and discounts!</p>
                     </div>
                     <div className="px-1">
