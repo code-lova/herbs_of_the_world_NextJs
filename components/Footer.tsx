@@ -93,7 +93,7 @@ const Footer = () => {
         <div className="col-span-2">
             <div className="item-center">
                 <a href="{{ url('/') }}">
-                    <Image src={images.logowhite} alt="Logo" className="object-cover w-[270px] h-[160px] mx-auto" />
+                    <Image src={images.logowhite} alt="Logo" className="object-cover w-[210px] h-[160px] mx-auto" />
                 </a>
                 <div className="max-w-[390px] mx-auto mb-4">
                     <p className="text-center text-white text-base leading-loose">Elementum nisi quis eleifend quam adipiscing. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin</p>

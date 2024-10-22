@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { navLinks } from '@/constants';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
+import images from '@/public/images';
 
 const Navbar = () => {
 
@@ -23,21 +24,21 @@ const Navbar = () => {
 
 
   return (
-    <nav className='bg-primary fixed shadow-2xl z-50 top-0 left-0 w-full text-white padding'>
+    <nav className='bg-gray-200 fixed shadow-2xl z-50 top-0 left-0 w-full text-black padding'>
 
         <div className='flex items-center justify-between lg:px-12'>
             <div className='cursor-pointer'>
                 <Image 
-                    src="/logo.webp" 
-                    width={90} 
-                    height={30} 
+                    src={images.logodark} 
+                    width={120} 
+                    height={60} 
                     alt='herb of the world logo'
-                    className=' object-contain'
+                    className='object-contain w-[98px] h-[80] md:w-24 '
                 />
             </div>
 
             {/* nav display as flex for larger screens if there is no session */}
-            <div className='flex flex-row item-center mt-4 cursor-pointer lg:hidden'>
+            <div className='flex flex-row item-center mt-2 cursor-pointer lg:hidden'>
                 {session && (
                     <div className='flex flex-row space-x-4 mt-2'>
                         <Link href='/user'>
@@ -65,7 +66,7 @@ const Navbar = () => {
                 {navLinks.map((nav) => (
                     <li
                         key={nav.id}
-                        className="text-white hover:underline py-2 hover:lg:text-white font-bold lg:transitioning lg:py-4 text-[16px] relative"
+                        className="text-black hover:underline py-2 hover:lg:text-custom-green font-bold lg:transitioning lg:py-4 text-[16px] relative"
                         onMouseEnter={() => handleMouseEnter(nav.id)}
                         onMouseLeave={handleMouseLeave}
                     >
@@ -140,7 +141,7 @@ const Navbar = () => {
         <ul className={`${toggle ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} transition-all duration-300 bg-mobile-nav overflow-hidden`}>
             {navLinks.map((nav) => (
                 <li key={nav.id} 
-                    className="text-white hover:underline py-2 hover:lg:text-white lg:transitioning lg:py-4 font-light text-[16px]"
+                    className="text-black hover:font-bold py-2 hover:lg:text-custom-green lg:transitioning lg:py-4 font-light text-[16px]"
                 >
                     {(nav.id === 'login' || nav.id === 'signup') && session ? (
                         nav.id === 'login' ? (

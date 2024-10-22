@@ -47,7 +47,7 @@ main{
 
 @layer utilities {
   .padding {
-    @apply sm:px-2 sm:py-4 md:py-4 md:px-8 px-2 py-2;
+    @apply md:py-1 md:px-8 px-2 py-0;
   }
 
   .card-color{
@@ -80,7 +80,7 @@ main{
   }
 
   .bg-mobile-nav{
-    @apply cursor-pointer px-8 py-2 lg:opacity-100 lg:hidden lg:pt-8  bg-primary lg:bg-primary transition-all duration-500 ease-in-out overflow-hidden;
+    @apply cursor-pointer px-8 py-2 lg:opacity-100 lg:hidden lg:pt-8  bg-gray-200 lg:bg-primary transition-all duration-500 ease-in-out overflow-hidden;
   }
 
   .green_gradient {
