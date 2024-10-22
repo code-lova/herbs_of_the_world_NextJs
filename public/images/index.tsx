@@ -16,7 +16,8 @@ import insta from './insta.png';
 import twitterx from './twitterx.png';
 import fb from './fb.png';
 import youtube from './youtube.png';
-import logowhite from './logo-white.png'
+import logowhite from './logo-white.png';
+import logodark from './1.png';
 
 
 
@@ -41,6 +42,7 @@ const images = {
     fb,
     youtube,
     logowhite,
+    logodark,
 }
 
 export default images;
