@@ -44,12 +44,12 @@ export const navLinks = [
     },
     {
         id: 'login',
-        link: '/sign-in',
+        link: '/signin',
         title: "Login"
     },
     {
         id: 'signup',
-        link: '/sign-up',
+        link: '/signup',
         title: "Sign Up"
     },
 ]
