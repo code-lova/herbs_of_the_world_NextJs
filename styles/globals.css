@@ -50,39 +50,7 @@ main{
     @apply md:py-1 md:px-8 px-2 py-0;
   }
 
-  .card-color{
-    @apply bg-[#212428];
-  }
-
-  .font-semi-thick{
-    @apply font-light;
-  }
-
-  .text-semi-dark{
-    @apply text-slate-700;
-  }
-
-  .hero-text-gray{
-    @apply text-gray-600;
-  }
-
-  .card-color{
-    @apply bg-[#212428];
-  }
-
- 
-  .padding-x {
-    @apply sm:px-16 px-8;
-  }
-
-  .padding-y {
-    @apply sm:py-24 py-12;
-  }
-
-  .bg-mobile-nav{
-    @apply cursor-pointer px-8 py-2 lg:opacity-100 lg:hidden lg:pt-8  bg-gray-200 lg:bg-primary transition-all duration-500 ease-in-out overflow-hidden;
-  }
-
+  
   .green_gradient {
     @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
   }
@@ -91,25 +59,19 @@ main{
     @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
   }
 
-  .login-form-input{
-    @apply mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm outline-none focus:ring-custom-green focus:border-custom-green;
+  .form-input{
+    @apply block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600;
   }
 
+
   .login-btn{
-    @apply w-full bg-custom-green text-white py-2 px-4 rounded-md shadow-md hover:bg-green-700 transition duration-300;
+    @apply w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-900 text-white py-3 px-2 rounded;
   }
 
   .text-color{
     @apply font-montserrat text-slate-400;
   }
 
-  .admin-nav-hover{
-    @apply py-2 px-4 text-color rounded transition duration-200 hover:bg-gray-700 hover:text-white flex flex-row items-center space-x-1;
-  }
-
-  .admin-small-btn{
-    @apply p-4 w-auto rounded-lg cursor-pointer h-auto card-color shadow-shadow-1 text-coral-red tracking-wider;
-  }
 
   .form-button {
     @apply md:w-[100px] md:h-[60px] h-[50px] md:mt-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-900 text-white py-1 px-2 rounded;
