@@ -13,16 +13,28 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { resetPassordProps } from "@/types";
 
 const ResetPassword = () => {
-  const navigate = useRouter();
-  const searchParams = useSearchParams();
-  const code = searchParams.get("code");
-  const exp = searchParams.get("exp");
-
+  const [isMounted, setIsMounted] = useState(false); // Track mount status
   const [loading, setLoading] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(false);
 
+  const navigate = useRouter();
+  const searchParams = useSearchParams();
+  // const code = searchParams.get("code");
+  // const exp = searchParams.get("exp");
+
   useEffect(() => {
-    if (code && exp) {
+    setIsMounted(true); // Set to true after mounting
+  }, []);
+
+  // Only proceed if component is mounted
+  const code = isMounted ? searchParams.get("code") : null;
+  const exp = isMounted ? searchParams.get("exp") : null;
+
+
+
+
+  useEffect(() => {
+    if (isMounted && code && exp) {
       const currentTime = Date.now();
       if (currentTime < Number(exp)) {
         setIsValid(true);
@@ -31,7 +43,7 @@ const ResetPassword = () => {
         navigate.push("/forgot-password");
       }
     }
-  }, [code, exp, navigate]);
+  }, [isMounted, code, exp, navigate]);
 
   const handleSubmit = (values: resetPassordProps) => {
     if (!code || !isValid) {
@@ -53,10 +65,10 @@ const ResetPassword = () => {
       toast.error(error.message || "Failed to reset password.");
       setLoading(false);
     },
-    onSettled: () => {
-      setLoading(false);
-    },
+    onSettled: () => setLoading(false),
   });
+
+  if (!isMounted) return null;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -70,11 +82,11 @@ const ResetPassword = () => {
             className="object-contain w-[98px] h-[80] md:w-24 "
           />
           <h1 className="text-2xl font-bold mb-1 text-center uppercase blue_gradient">
-            Forgot your Password{" "}
+            Reset your Password{" "}
           </h1>
         </div>
         <h2 className="text-md font-bold mb-6 text-center">
-          Enter valid email address
+          use a password you would remember
         </h2>
 
         {isValid && (
