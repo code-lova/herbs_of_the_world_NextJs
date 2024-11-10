@@ -1,36 +1,35 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { testimonials } from '@/constants';
 
-
-
 const TestimonialSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(3); // default for large screens
 
-  const testimonialsPerSlide = {
-    sm: 1,
-    md: 2,
-    lg: 3,
-  };
+  // Adjust slidesPerView based on window width
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth >= 1024) setSlidesPerView(3);
+      else if (window.innerWidth >= 768) setSlidesPerView(2);
+      else setSlidesPerView(1);
+    };
 
-  const getSlidesPerView = (): number => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth >= 1024) return testimonialsPerSlide.lg; // Large screens
-      if (window.innerWidth >= 768) return testimonialsPerSlide.md;  // Medium screens
-      return testimonialsPerSlide.sm; // Small screens
-    }
-    return testimonialsPerSlide.lg;
-  };
+    updateSlidesPerView(); // Set on initial render
+    window.addEventListener('resize', updateSlidesPerView); // Update on resize
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('resize', updateSlidesPerView);
+  }, []);
 
   const nextSlide = () => {
-    const totalSlides = Math.ceil(testimonials.length / getSlidesPerView());
+    const totalSlides = Math.ceil(testimonials.length / slidesPerView);
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
   const prevSlide = () => {
-    const totalSlides = Math.ceil(testimonials.length / getSlidesPerView());
+    const totalSlides = Math.ceil(testimonials.length / slidesPerView);
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
@@ -38,13 +37,13 @@ const TestimonialSlider = () => {
     setCurrentSlide(index);
   };
 
-  const totalSlides = Math.ceil(testimonials.length / getSlidesPerView());
+  const totalSlides = Math.ceil(testimonials.length / slidesPerView);
 
   return (
     <div>
       <div>
         <h1 className="text-center text-[34px] uppercase font-palanquin font-extrabold">Your Trust is Our Top Concern</h1>
-        <div className="mt-4 ">
+        <div className="mt-4">
           <p className="mt-4 text-center mb-8 max-w-[300px] mx-auto">
             Suscipit tellus mauris a diam maecenas sed enim ut sem. Turpis egestas maecenas pharetra convallis posuere
           </p>

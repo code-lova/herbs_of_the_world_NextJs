@@ -21,7 +21,7 @@ export const navLinks = [
         title: "Explore",
         subMenu: [
             { title: 'Affiliate', link: '/explore/affiliate' },
-            { title: 'Wholesales', link: '/explore/wholesales' },
+            { title: 'Wholesale', link: '/explore/wholesale' },
             { title: 'Testimonials', link: '/explore/testimonials' },
             { title: 'How to Use', link: '/explore/how-to-use' },
             { title: 'Competitive Horse Trainers', link: '/explore/competitive-horse-trainers' }
@@ -42,16 +42,7 @@ export const navLinks = [
         link: '/contact-us',
         title: "Contact Us"
     },
-    {
-        id: 'login',
-        link: '/signin',
-        title: "Login"
-    },
-    {
-        id: 'signup',
-        link: '/signup',
-        title: "Sign Up"
-    },
+   
 ]
 
 

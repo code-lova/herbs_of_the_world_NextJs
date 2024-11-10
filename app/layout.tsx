@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Provider from "@/components/homepage/Provider";
 import "../styles/globals.css";
+import TanstackProvider from "@/providers/tanstackQuery";
+import { Toaster } from "react-hot-toast";
+import { UserProvider } from "@/context/UserContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Provider>
-        <body className={inter.className}>{children}</body>
-      </Provider>
-    </html>
+    <head>
+    <title>Herbs of the world</title>
+      <meta name="description" content={metadata.description || ''} />
+    </head>
+    <body className={inter.className}>
+      <TanstackProvider>
+        <UserProvider>
+          {children}
+          <Toaster />
+        </UserProvider>
+      </TanstackProvider>
+    </body>
+  </html>
   );
 }
