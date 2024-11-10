@@ -9,44 +9,39 @@ import { resetPasswordRequest } from "@/services/request/auth/resetPasswordReque
 import { resetPasswordSchema } from "@/schema/resetpassword";
 import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { resetPassordProps } from "@/types";
 
 const ResetPassword = () => {
-  const [isMounted, setIsMounted] = useState(false); // Track mount status
   const [loading, setLoading] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(false);
+  const [code, setCode] = useState<string | null>(null);
+  const [exp, setExp] = useState<number | null>(null);
 
   const navigate = useRouter();
-  const searchParams = useSearchParams();
-  // const code = searchParams.get("code");
-  // const exp = searchParams.get("exp");
 
+  // Use effect to access search params after mount
   useEffect(() => {
-    setIsMounted(true); // Set to true after mounting
-  }, []);
+    const params = new URLSearchParams(window.location.search);
+    const codeParam = params.get("code");
+    const expParam = params.get("exp");
 
-  // Only proceed if component is mounted
-  const code = isMounted ? searchParams.get("code") : null;
-  const exp = isMounted ? searchParams.get("exp") : null;
-
-
-
-
-  useEffect(() => {
-    if (isMounted && code && exp) {
+    if (codeParam && expParam) {
+      setCode(codeParam);
+      setExp(Number(expParam));
       const currentTime = Date.now();
-      if (currentTime < Number(exp)) {
+      if (currentTime < Number(expParam)) {
         setIsValid(true);
       } else {
         toast.error("The reset link has expired. Please request a new one.");
         navigate.push("/forgot-password");
       }
     }
-  }, [isMounted, code, exp, navigate]);
+  }, [navigate]);
 
-  const handleSubmit = (values: resetPassordProps) => {
-    if (!code || !isValid) {
+
+   const handleSubmit = (values: resetPassordProps) => {
+    if (!exp || !code || !isValid || Date.now() > exp) {
       toast.error("Invalid or expired reset link.");
       return;
     }
@@ -68,7 +63,6 @@ const ResetPassword = () => {
     onSettled: () => setLoading(false),
   });
 
-  if (!isMounted) return null;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
