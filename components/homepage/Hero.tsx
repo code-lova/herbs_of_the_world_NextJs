@@ -36,12 +36,12 @@ const Hero = () => {
           <p className='max-w-[300px] lg:max-w-full text-center uppercase font-light text-[16px] sm:text-[18px] md:text-[22px] lg:text-[28px] xl:text-[32px] mb-4'>
             Proven, Time Honored Formulations Since 1995
           </p>
-          <div className='hidden lg:flex'>
+          <div className='hidden lg:flex flex-col w-[800px]'>
             <p className='text-center font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-2'>
               We are a Natural Farm Store located in Salmon, Idaho, USA.
             </p>
             <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-4 text-center'>
-              Herbs of the world has formulated over 300 herbal <br className="hidden lg:block"/> mixtures for sporting and show horses since 1997!
+              Herbs of the world has formulated over 300 herbal  mixtures for sporting and show horses since 1997!
             </p>
           </div>
 
