@@ -133,4 +133,35 @@ export const testimonials = [
     { id: 4, name: 'Anna Smith', rating: 4, review: 'Ad pariatur sunt nemo...', image: images.avatar },
     { id: 5, name: 'David Brown', rating: 5, review: 'Dolor sit amet consectetur...', image: images.avatar },
     { id: 6, name: 'Emily Davis', rating: 5, review: 'Lorem ipsum dolor sit...', image: images.avatar },
-  ];
+];
+
+export const products = [
+    {
+        id: 1,
+        image: images.liverup,
+        title: "Liver Up™ EQ32 | Horse Liver Detox for Energy",
+        price: "49.00",
+        ratings: 5.0
+    },
+    {
+        id: 2,
+        image: images.cellular,
+        title: "Cellular Equine Detox Flush™ EQ15",
+        price: "57.95",
+        ratings: 3.0
+    },
+    {
+        id: 3,
+        image: images.producty095,
+        title: "Ulcer Ease™ EQ55 | Horse, Equine Ulcer Support",
+        price: "46.00",
+        ratings: 4.0
+    },
+    {
+        id: 4,
+        image: images.producty088,
+        title: "Ten Done™ EQ38 | Equine Muscle, Tendon & Ligaments Support",
+        price: "45.00",
+        ratings: 5.0
+    },
+]

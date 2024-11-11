@@ -40,7 +40,7 @@ const Navbar = () => {
   });
 
   return (
-    <nav className="bg-gray-200 fixed shadow-2xl z-50 top-0 left-0 w-full text-black padding">
+    <nav className="bg-gray-200 fixed shadow-md z-50 top-0 left-0 w-full text-black padding">
       <div className="flex items-center justify-between lg:px-12">
         <div className="cursor-pointer">
           <Image

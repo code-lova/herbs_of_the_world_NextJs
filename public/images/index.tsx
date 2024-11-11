@@ -4,8 +4,6 @@ import abtus from './abtus.webp';
 import avatar from './avatar.png';
 import countdown from './countdown.webp';
 import doggz2 from './doggz2.png';
-import horseberb from './horse-herb.png';
-import horse from './horse.png';
 import horses from './horses.webp';
 import humanherb from './human-herb.png';
 import human2 from './human2.png';
@@ -18,6 +16,9 @@ import fb from './fb.png';
 import youtube from './youtube.png';
 import logowhite from './logo-white.png';
 import logodark from './1.png';
+import cellular from './cellular-equine-detox-flush.webp';
+import producty088 from './product_2011H-Y088.webp';
+import producty095 from './product_2011H-Y095.webp';
 
 
 
@@ -29,8 +30,6 @@ const images = {
     avatar,
     countdown,
     doggz2,
-    horseberb,
-    horse,
     horses,
     humanherb,
     human2,
@@ -43,6 +42,9 @@ const images = {
     youtube,
     logowhite,
     logodark,
+    cellular,
+    producty088,
+    producty095,
 }
 
 export default images;

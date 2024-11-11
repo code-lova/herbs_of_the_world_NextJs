@@ -8,10 +8,10 @@ const Page = () => {
     <>
       <main className="main">
         <Navbar />
-        <section className="mt-40">
-          <HeroBanner />
+        <section className="py-24">
+          <HeroBanner title="Herbs for horses"/>
         </section>
-        <section className="xl:px-40 py-9">
+        <section className="xl:px-24">
           <HerbsForHorses />
         </section>
       </main>
