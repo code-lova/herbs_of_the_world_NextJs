@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { products } from "@/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const HerbsForHorses = () => {
   const [minPrice, setMinPrice] = useState<string>("");
@@ -117,12 +118,12 @@ const HerbsForHorses = () => {
                 <span className="text-xl font-bold text-gray-900">
                   ${item.price}
                 </span>
-                <a
+                <Link
                   href="#"
                   className="bg-black text-white font-bold hover:bg-green-800 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center"
                 >
                   View Product
-                </a>
+                </Link>
               </div>
             </div>
           </div>
