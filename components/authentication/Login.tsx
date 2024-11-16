@@ -38,7 +38,7 @@ const Login = () => {
   });
 
   useEffect(() => {
-    // Navigate based on the user role after refetchUser completes
+    // Navigate based on the user role after refetchUser completed
     if (user) {
       if (user.role === "admin") {
         navigate.push("/admin");
