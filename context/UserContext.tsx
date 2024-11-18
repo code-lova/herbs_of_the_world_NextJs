@@ -23,12 +23,21 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [user, isLoading]);
 
+  const refetchUser = async () => {
+    try {
+      const { data } = await refetch(); // Call refetch from the `useUser` hook
+      setUser(data || null);
+    } catch {
+      setUser(null); // Reset state if the fetch fails
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
         user: userState,
         isLoading,
-        refetchUser: refetch,
+        refetchUser,
         setUser,
       }}
     >

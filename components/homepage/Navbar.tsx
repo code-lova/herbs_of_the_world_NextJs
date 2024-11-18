@@ -9,6 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { logoutRequest } from "@/services/request/auth/logoutRequest";
 import { queryClient } from "@/providers/tanstackQuery";
+import { AUTH } from "@/hooks/useUser";
 
 const Navbar = () => {
   const { user, setUser } = useUserContext();
@@ -33,9 +34,12 @@ const Navbar = () => {
   const { mutate: signOut } = useMutation({
     mutationFn: logoutRequest,
     onSettled: () => {
-      queryClient.clear();
-      navigate.replace("/signin");
+      queryClient.invalidateQueries({ queryKey: [AUTH]});
       setUser(null);
+      navigate.replace("/signin");
+    },
+    onError: (error) => {
+      console.error("Logout failed. Please try again.", error);
     },
   });
 
