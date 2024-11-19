@@ -41,8 +41,10 @@ const Hero = () => {
               We are a Natural Farm Store located in Salmon, Idaho, USA.
             </p>
             <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-4 text-center'>
-              Herbs of the world has formulated over 300 herbal  mixtures for sporting and show horses since 1997!
+              Herbs of the world, over 300 formulas steeped in rich traditions of cultures worldwide of our ancestors and cultures.
             </p>
+            <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-4 text-center'>
+              Also we use compostable packaging with minimal plastic.</p>
           </div>
 
           {/* Buttons */}

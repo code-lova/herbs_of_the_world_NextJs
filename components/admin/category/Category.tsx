@@ -6,6 +6,7 @@ import Link from "next/link";
 import Clickbutton from "@/components/core/buttons/Clickbutton";
 import { useQuery } from "@tanstack/react-query";
 import { CategoryProps, getCategories } from "@/services/request/category";
+import { Spinner } from "@/components/core/loader/Spinner";
 
 
 const Category = () => {
@@ -15,16 +16,6 @@ const Category = () => {
     queryFn: getCategories,
     refetchOnWindowFocus: false, // Avoid frequent refetches
   });
-
-  console.log("Categories from useQuery:", categories);
-
-  if (isLoading) {
-    return <div>Loading categories...</div>;
-  }
-
-  if (isError) {
-    return <div>Failed to load categories. Please try again later.</div>;
-  }
 
 
   return (
@@ -40,25 +31,52 @@ const Category = () => {
             />
           </Link>
         </div>
-        <div className="flex flex-col xl:grid grid-cols-3 gap-4 mb-2">
-          {categories?.map((category) => (
-            <div key={category._id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <Link href="#">
-                <Image 
-                  className="rounded-t-lg h-[350px]" 
-                  src={images.catgreen} //this is static for all categories
-                  alt={category.name} 
-                />
-              </Link>
-                <div className="p-5">
-                  <Link href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{category.name} </h5>
-                  </Link>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{category.description || "No description available."}</p>
-                  <Clickbutton type="button" color="from-purple-600 to-blue-500" text="Edit category"/>
-                </div>
+         {isLoading && (
+            <div className="flex justify-center items-center mt-20 gap-4">
+              <Spinner size="large" />
+              <p className="font-bold text-base">Loading categories...</p>
             </div>
-          ))}
+          )}
+
+          {isError && (
+            <div className="flex justify-center items-center mt-20 ">
+              <p className="text-red-500 text-center">Failed to load categories. Please try again later.</p>
+            </div>
+          )}
+        <div className="flex flex-col xl:grid grid-cols-3 gap-4 mb-2">
+          {!isLoading && !isError && (
+            <div className="flex flex-col xl:grid grid-cols-3 gap-4 mb-2">
+              {categories?.map((category) => (
+                <div
+                  key={category._id}
+                  className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                >
+                  <Link href="#">
+                    <Image
+                      className="rounded-t-lg h-[350px]"
+                      src={images.catgreen} // this is static for all categories
+                      alt={category.name}
+                    />
+                  </Link>
+                  <div className="p-5">
+                    <Link href="#">
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {category.name}
+                      </h5>
+                    </Link>
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                      {category.description || "No description available."}
+                    </p>
+                    <Clickbutton
+                      type="button"
+                      color="from-purple-600 to-blue-500"
+                      text="Edit category"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
