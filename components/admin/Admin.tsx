@@ -2,7 +2,7 @@ import React from "react";
 
 const Admin = () => {
   return (
-    <div className="p-4 sm:ml-64 bg-gray-400">
+    <div className="p-4 sm:ml-64 bg-gray-200">
       <div className="p-4 rounded-lg dark:border-gray-700">
         <div className="grid grid-cols-3 gap-4 mb-4">
           <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">

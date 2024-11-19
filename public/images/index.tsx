@@ -19,6 +19,8 @@ import logodark from './1.png';
 import cellular from './cellular-equine-detox-flush.webp';
 import producty088 from './product_2011H-Y088.webp';
 import producty095 from './product_2011H-Y095.webp';
+import catgreen from './category-green.webp';
+
 
 
 
@@ -45,6 +47,7 @@ const images = {
     cellular,
     producty088,
     producty095,
+    catgreen,
 }
 
 export default images;

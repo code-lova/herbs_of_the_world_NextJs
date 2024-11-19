@@ -16,6 +16,12 @@ export type LoaderButtonProps = {
   loadingText?: string;
 };
 
+export type ClickButtonProps = {
+  text: string;
+  type?: "button";
+  color: string;
+}
+
 
 // Define the expected shape of the registration data
 export interface RegisterData {
@@ -40,3 +46,4 @@ export type loginProps = {
 export interface UserCreationDateProps {
   createdAt: Date;
 }
+

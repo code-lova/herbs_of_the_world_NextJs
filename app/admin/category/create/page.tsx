@@ -1,13 +1,12 @@
-import Admin from '@/components/admin/Admin'
+import CreateCategory from '@/components/admin/category/CreateCategory'
 import Sidebar from '@/components/admin/Sidebar'
-
 import React from 'react'
 
 const Page = () => {
   return (
     <div>
-      <Sidebar />
-      <Admin />
+        <Sidebar />
+        <CreateCategory />
     </div>
   )
 }
