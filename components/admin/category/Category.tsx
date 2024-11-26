@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import images from "@/public/images";
 import Link from "next/link";
@@ -7,6 +7,9 @@ import Clickbutton from "@/components/core/buttons/Clickbutton";
 import { useQuery } from "@tanstack/react-query";
 import { CategoryProps, getCategories } from "@/services/request/category";
 import { Spinner } from "@/components/core/loader/Spinner";
+import EditCategoryModal from "../modal/EditCategoryModal";
+import { FaTrashAlt } from "react-icons/fa";
+
 
 
 const Category = () => {
@@ -17,9 +20,29 @@ const Category = () => {
     refetchOnWindowFocus: false, // Avoid frequent refetches
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<CategoryProps | null>(null);
+
+  // Close modal and clear selected category
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedCategory(null);
+  };
+
+  const handleEditClick = (category: CategoryProps) => {
+    setSelectedCategory(category);
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteClick = (categoryId: string) => {
+    alert("Are ou sure you want to delete this category")
+    // Implement the delete logic here
+    console.log(`Delete category with ID: ${categoryId}`);
+  };
+
 
   return (
-    <div className="p-4 sm:ml-64 bg-gray-200 h-full">
+    <div className="p-4 sm:ml-64">
       <div className="p-4 rounded-lg dark:border-gray-700">
         <div className="flex space-x-4 justify-between items-center mb-10 ">
           <h1 className="text-2xl font-bold text-gray-900">List of Categories</h1>
@@ -43,7 +66,6 @@ const Category = () => {
               <p className="text-red-500 text-center">Failed to load categories. Please try again later.</p>
             </div>
           )}
-        <div className="flex flex-col xl:grid grid-cols-3 gap-4 mb-2">
           {!isLoading && !isError && (
             <div className="flex flex-col xl:grid grid-cols-3 gap-4 mb-2">
               {categories?.map((category) => (
@@ -67,18 +89,35 @@ const Category = () => {
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                       {category.description || "No description available."}
                     </p>
+                    <div className="flex items-center justify-between mt-4">
                     <Clickbutton
                       type="button"
                       color="from-purple-600 to-blue-500"
-                      text="Edit category"
+                      text="View category"
+                      onClick={() => handleEditClick(category)}
                     />
+                    <button
+                      type="button"
+                      className="text-red-600 hover:text-red-800"
+                      onClick={() => handleDeleteClick(category._id)}
+                    >
+                      <FaTrashAlt size={30} />
+                    </button>
+                  </div>
+                   
                   </div>
                 </div>
               ))}
             </div>
           )}
+           {selectedCategory && (
+          <EditCategoryModal
+            isOpen={isModalOpen}
+            onClose={handleModalClose}
+            initialData={selectedCategory}
+          />
+        )}
         </div>
-      </div>
     </div>
   );
 };

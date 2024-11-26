@@ -20,6 +20,7 @@ export type ClickButtonProps = {
   text: string;
   type?: "button";
   color: string;
+  onClick?: () => void; 
 }
 
 

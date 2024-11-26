@@ -5,7 +5,7 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div>
+    <div className='admin'>
       <Sidebar />
       <Admin />
     </div>

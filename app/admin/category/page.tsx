@@ -4,10 +4,10 @@ import React from "react";
 
 const Page = () => {
   return (
-    <>
+    <div className="admin">
       <Sidebar />
       <Category />
-    </>
+    </div>
   );
 };
 
