@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 import "../styles/globals.css";
 import TanstackProvider from "@/providers/tanstackQuery";
 import { Toaster } from "react-hot-toast";
 import { UserProvider } from "@/context/UserContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Herbs of the world",
@@ -23,7 +23,7 @@ export default function RootLayout({
     <title>Herbs of the world</title>
       <meta name="description" content={metadata.description || ''} />
     </head>
-    <body className={inter.className}>
+    <body className={lato.className}>
       <TanstackProvider>
         <UserProvider>
           {children}

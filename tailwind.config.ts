@@ -23,6 +23,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
+        lato: ['Lato', 'sans-serif'],
         palanquin: ['Palanquin', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
       },

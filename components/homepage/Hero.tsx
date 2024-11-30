@@ -30,20 +30,20 @@ const Hero = () => {
 
         {/* Centered text for large screens */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-20 px-4 lg:px-0">
-          <p className='uppercase font-bold mt-10 text-[24px] sm:text-[28px] md:text-[40px] lg:text-[48px] xl:text-[56px] leading-tight'>
+          <p className=' capitalize font-lato font-extrabold mt-10 text-[24px] sm:text-[28px] md:text-[40px] lg:text-[48px] xl:text-[56px] tracking-wider'>
             Herbs of the World
           </p>
-          <p className='max-w-[300px] lg:max-w-full text-center uppercase font-light text-[16px] sm:text-[18px] md:text-[22px] lg:text-[28px] xl:text-[32px] mb-4'>
+          <p className='max-w-[300px] lg:max-w-full text-center capitalize font-light text-[16px] sm:text-[18px] md:text-[22px] lg:text-[28px] xl:text-[32px] mb-4'>
             Proven, Time Honored Formulations Since 1995
           </p>
           <div className='hidden lg:flex flex-col w-[800px]'>
-            <p className='text-center font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-2'>
+            <p className='text-center font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[18px] mb-2 tracking-wider'>
               We are a Natural Farm Store located in Salmon, Idaho, USA.
             </p>
-            <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-4 text-center'>
+            <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[18px] mb-4 text-center tracking-wider'>
               Herbs of the world, over 300 formulas steeped in rich traditions of cultures worldwide of our ancestors and cultures.
             </p>
-            <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] mb-4 text-center'>
+            <p className='font-bold text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[18px] mb-4 text-center tracking-wider'>
               Also we use compostable packaging with minimal plastic.</p>
           </div>
 

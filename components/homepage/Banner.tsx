@@ -46,7 +46,7 @@ const Banner = () => {
                                     className='object-fit mx-auto rounded-lg w-[270px] h-[370px]'
                                 />
                             </div>
-                            <div className='mt-4'>
+                            <div className='mt-4 text-center'>
                                 <h1 className='font-bold w-full text-xl font-palanquin'>Herbs Collection</h1>
                                 <p className='font-extrabold text-4xl mb-1'>Horse herbs</p>
                             </div>
@@ -66,7 +66,7 @@ const Banner = () => {
                                     className='object-fit mx-auto rounded-lg w-[270px] h-[370px] '
                                 />
                             </div>
-                            <div className='mt-4'>
+                            <div className='mt-4 text-center'>
                                 <h1 className='font-bold w-full text-xl font-palanquin'>Herbs Collection</h1>
                                 <p className='font-extrabold text-4xl'>Human Herbs</p>
                             </div>
@@ -87,7 +87,7 @@ const Banner = () => {
                                     className='object-fit mx-auto rounded-lg w-[270px] h-[370px]'
                                 />
                             </div>
-                            <div className='mt-4'>
+                            <div className='mt-4 text-center'>
                                 <h1 className='font-bold w-full text-xl font-palanquin'>Herbs Collection</h1>
                                 <p className='font-extrabold text-4xl'>Pet Herbs</p>
                             </div>

@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import { products } from "@/constants";
 import Image from "next/image";
-import Link from "next/link";
+import ProductDetailDrawer from "../drawer/ProductDetailDrawer";
+
 
 const HerbsForHorses = () => {
   const [minPrice, setMinPrice] = useState<string>("");
   const [maxPrice, setMaxPrice] = useState<string>("");
   const [sortOption, setSortOption] = useState<string>("alphabetical");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const filteredProducts = products
     .filter((product) => {
@@ -26,6 +29,10 @@ const HerbsForHorses = () => {
       return 0;
     });
 
+    const handleViewProduct = (product: any) => {
+      setSelectedProduct(product);
+      setIsDrawerOpen(true);
+    };
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pb-4">
       <div className="w-full h-[400px] bg-herobg-gray col-span-1 rounded-md py-4 px-4">
@@ -118,17 +125,23 @@ const HerbsForHorses = () => {
                 <span className="text-xl font-bold text-gray-900">
                   ${item.price}
                 </span>
-                <Link
-                  href="#"
+                <button
+                  onClick={() => handleViewProduct(item)}
                   className="bg-black text-white font-bold hover:bg-green-800 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center"
                 >
                   View Product
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      {/* Product Detail Drawer */}
+      <ProductDetailDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        product={selectedProduct}
+      />
     </div>
   );
 };

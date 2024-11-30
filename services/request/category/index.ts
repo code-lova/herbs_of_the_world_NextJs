@@ -24,6 +24,10 @@ interface CreateResponse {
     category: Category;
 }
 
+interface DeleteResponse {
+    message: string;
+}
+
 
 export const getCategories = async(): Promise<CategoryProps[]> => {
     const response: GetCategoriesResponse = await API.get("/api/category/all");
@@ -40,3 +44,8 @@ export const updateCategory = async (data: CategoryProps): Promise<Category> => 
     const response: CreateResponse = await API.put(`/api/category/${_id}`, categoryData);
     return response.category;
 };
+
+export const deleteCategory = async(categoryId: string) => {
+    const response: DeleteResponse = await API.delete(`/api/category/${categoryId}`);
+    return response;
+}
