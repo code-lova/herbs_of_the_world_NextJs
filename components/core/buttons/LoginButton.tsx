@@ -3,7 +3,7 @@ import { LoaderButtonProps } from "@/types";
 
 const LoaderButton: React.FC<LoaderButtonProps> = ({ loading, text, type, loadingText }) => (
   <button
-    className="flex items-center justify-center submit-btn"
+    className="flex items-center justify-center login-btn"
     disabled={loading}
     type={type}
   >

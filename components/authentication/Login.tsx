@@ -9,9 +9,9 @@ import { useMutation } from "@tanstack/react-query";
 import { loginRequest } from "@/services/request/auth/loginRequest";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useRouter } from "next/navigation";
-import LoaderButton from "../core/buttons/LoaderButtons";
 import { loginProps } from "@/types";
 import { useUserContext } from "@/context/UserContext";
+import LoginButton from "../core/buttons/LoginButton";
 
 const Login = () => {
   const { user, refetchUser } = useUserContext();
@@ -143,13 +143,14 @@ const Login = () => {
                   </Link>
                 </div>
               </div>
-
-              <LoaderButton
-                loading={loading}
-                loadingText="Processing..."
-                type="submit"
-                text="Login account"
-              />
+              <div className="mt-4 flex justify-center">
+                <LoginButton
+                  loading={loading}
+                  loadingText="Processing..."
+                  type="submit"
+                  text="Login account"
+                />
+              </div>
             </Form>
           )}
         </Formik>

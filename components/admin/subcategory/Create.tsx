@@ -4,13 +4,14 @@ import Link from "next/link";
 import Clickbutton from "@/components/core/buttons/Clickbutton";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import toast from "react-hot-toast";
-import { useMutation } from "@tanstack/react-query";
-import { createCategoryProps } from "@/services/request/category/type";
-import { createCategorySchema } from "@/services/request/category/schema";
-import { createCategory } from "@/services/request/category";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { createSubCategoryProps } from "@/services/request/subcaregory/type";
+import { createSubCategorySchema } from "@/services/request/subcaregory/schema";
+import { createSubCategory } from "@/services/request/subcaregory";
 import LoaderButton from "@/components/core/buttons/LoaderButtons";
+import { CategoryProps, getCategories } from "@/services/request/category";
 
-const initialValues: createCategoryProps = {
+const initialValues: createSubCategoryProps = {
   name: "",
   slug: "",
   description: "",
@@ -18,22 +19,33 @@ const initialValues: createCategoryProps = {
   metaDescription: "",
   metaKeywords: "",
   canonicalUrl: "",
+  categoryId: "",
+  status: "active",
 };
 
-const CreateCategory = () => {
+const Create = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
+  // Fetch categories for the dropdown
+  const { data: categories, isLoading: isFetchingCategories } = useQuery<
+    CategoryProps[]
+  >({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+    refetchOnWindowFocus: false, // Avoid frequent refetches
+  });
+
   const { mutate } = useMutation({
-    mutationFn: createCategory,
+    mutationFn: createSubCategory,
     onMutate: () => {
       setLoading(true);
     },
     onSuccess: () => {
-      toast.success("Category created successfully");
+      toast.success("Subcategory created successfully");
       setLoading(false);
     },
     onError: (error) => {
-      toast.error(error?.message || "An error occurred creating category");
+      toast.error(error?.message || "An error occurred creating subcategory");
       setLoading(false);
     },
     onSettled: () => {
@@ -42,8 +54,8 @@ const CreateCategory = () => {
   });
 
   const handleSubmit = (
-    values: createCategoryProps,
-    { resetForm }: FormikHelpers<createCategoryProps>
+    values: createSubCategoryProps,
+    { resetForm }: FormikHelpers<createSubCategoryProps>
   ) => {
     mutate(values, {
       onSuccess: () => {
@@ -56,21 +68,19 @@ const CreateCategory = () => {
     <div className="p-4 sm:ml-64">
       <div className="p-4 rounded-lg dark:border-gray-700">
         <div className="flex space-x-4 justify-between items-center mb-10">
-          <h1 className="text-2xl font-bold text-gray-900">
-            Create Category
-          </h1>
-          <Link href="/admin/category">
-            <Clickbutton 
-              type="button" 
-              color="from-green-400 to-blue-600" 
-              text="Categories"
+          <h1 className="text-2xl font-bold text-gray-900">Create Category</h1>
+          <Link href="/admin/subcategory">
+            <Clickbutton
+              type="button"
+              color="from-green-400 to-blue-600"
+              text="Subcategories"
             />
           </Link>
         </div>
 
         <Formik
           initialValues={initialValues}
-          validationSchema={createCategorySchema}
+          validationSchema={createSubCategorySchema}
           onSubmit={handleSubmit}
         >
           {() => (
@@ -82,7 +92,7 @@ const CreateCategory = () => {
                       htmlFor="name"
                       className="block text-sm font-medium text-gray-900"
                     >
-                      Category Name
+                      Subcategory Name
                     </label>
                     <div className="mt-2">
                       <Field
@@ -120,6 +130,59 @@ const CreateCategory = () => {
                       />
                     </div>
                   </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="categoryId"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Select Category
+                    </label>
+                    <div className="mt-2">
+                      <Field
+                        as="select"
+                        id="categoryId"
+                        name="categoryId"
+                        className="form-style"
+                        disabled={isFetchingCategories}
+                      >
+                        <option value="">Select a category</option>
+                        {categories?.map((category) => (
+                          <option key={category._id} value={category._id}>
+                            {category.name}
+                          </option>
+                        ))}
+                      </Field>
+                    </div>
+                    <ErrorMessage
+                      name="categoryId"
+                      component="div"
+                      className="text-sm text-red-500"
+                    />
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="status"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Status
+                    </label>
+                    <div className="mt-2">
+                      <Field
+                        as="select"
+                        id="status"
+                        name="status"
+                        className="form-style"
+                      >
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                      </Field>
+                    </div>
+                    <ErrorMessage
+                      name="status"
+                      component="div"
+                      className="text-sm text-red-500"
+                    />
+                  </div>
 
                   <div className="sm:col-span-3">
                     <label
@@ -155,7 +218,7 @@ const CreateCategory = () => {
                         as="textarea"
                         name="description"
                         id="description"
-                        rows="3"
+                        rows="5"
                         className="form-style"
                       />
                       <ErrorMessage
@@ -222,7 +285,7 @@ const CreateCategory = () => {
                         as="textarea"
                         name="metaDescription"
                         id="metaDescription"
-                        rows="3"
+                        rows="5"
                         className="form-style"
                       />
                       <ErrorMessage
@@ -235,12 +298,12 @@ const CreateCategory = () => {
                 </div>
               </div>
 
-              <div className="mt-6">
-                <LoaderButton 
+              <div className="mt-10 flex justify-center">
+                <LoaderButton
                   loading={loading}
                   loadingText="Processing..."
                   type="submit"
-                  text="Create Category"
+                  text="Create Subcategory"
                 />
               </div>
             </Form>
@@ -251,4 +314,4 @@ const CreateCategory = () => {
   );
 };
 
-export default CreateCategory;
+export default Create;

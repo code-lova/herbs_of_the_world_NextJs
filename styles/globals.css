@@ -83,6 +83,10 @@ main{
 
 
   .login-btn{
+    @apply w-full lg:w-[450px] lg:p-3 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-900 text-white py-3 px-2 rounded;
+  }
+
+  .submit-btn{
     @apply w-full lg:w-auto lg:p-3 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-900 text-white py-3 px-2 rounded;
   }
 
